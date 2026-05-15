@@ -1,0 +1,13 @@
+networks:
+  fin-tracker-network:
+    external: true
+
+services:
+  frontend:
+    image: fin-tracker-fe:latest
+    container_name: fin-tracker-fe
+    restart: always
+    ports:
+      - "3000:80"
+    networks:
+      - fin-tracker-network

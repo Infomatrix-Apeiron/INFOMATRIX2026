@@ -4,26 +4,29 @@
     @if (showHeader) {
         <header class="shell__header">
 
-            <!-- TODO: замінити на <app-back-button /> -->
-            <button class="back-btn" type="button" (click)="back.emit()" aria-label="Back">
-                ←
-            </button>
+            @if (showBackButton) {
+                <button class="back-btn" type="button" (click)="back.emit()" aria-label="Back">
+                    ←
+                </button>
+            }
 
-            <!-- TODO: замінити на <app-progress-bar /> -->
-            <div class="progress">
-                @for (i of [].constructor(totalSteps); track $index) {
-                    <span
-                            class="progress__seg"
-                            [class.progress__seg--active]="$index < progress"
-                    ></span>
-                }
-            </div>
+            @if (showProgress) {
+                <div class="progress">
+                    @for (i of [].constructor(totalSteps); track $index) {
+                        <span
+                                class="progress__seg"
+                                [class.progress__seg--active]="$index < progress"
+                        ></span>
+                    }
+                </div>
+            }
 
-            <!-- TODO: замінити на <app-coins-badge /> -->
-            <div class="coins">
-                <span class="text-badge">{{ coins }}</span>
-                <span class="coins__icon"></span>
-            </div>
+            @if (showCoins) {
+                <div class="coins">
+                    <span class="text-badge">{{ coins }}</span>
+                    <span class="coins__icon"></span>
+                </div>
+            }
 
         </header>
     }
@@ -42,10 +45,18 @@
     @if (showBottomNav) {
         <!-- TODO: замінити на <app-bottom-nav /> -->
         <nav class="bottom-nav">
-            <button type="button" (click)="navigate.emit('home')">🏠</button>
-            <button type="button" class="bottom-nav__active" (click)="navigate.emit('game')">🎮</button>
-            <button type="button" (click)="navigate.emit('favorites')">♡</button>
-            <button type="button" (click)="navigate.emit('profile')">👤</button>
+            <button type="button" (click)="navigate.emit('home')">
+                <img src="assets/icon_home.svg" alt="Logo" />
+            </button>
+            <button type="button" class="bottom-nav__active" (click)="navigate.emit('game')">
+                <img src="assets/icon_game.svg" alt="Logo" />
+            </button>
+            <button type="button" (click)="navigate.emit('favorites')">
+                <img src="assets/icon_heart.svg" alt="Logo" />
+            </button>
+            <button type="button" (click)="navigate.emit('profile')">
+                <img src="assets/icon_person.svg" alt="Logo" />
+            </button>
         </nav>
     }
 

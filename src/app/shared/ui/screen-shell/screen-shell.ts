@@ -9,6 +9,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class ScreenShellComponent {
   @Input() showHeader = false;
+  @Input() showBackButton = true;
+  @Input() showProgress = true;
+  @Input() showCoins = true;
   @Input() showBottomNav = false;
   @Input() progress = 0;
   @Input() totalSteps = 0;

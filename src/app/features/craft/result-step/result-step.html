@@ -1,0 +1,57 @@
+<app-screen-shell
+        [showHeader]="true"
+        [showBackButton]="false"
+        [showProgress]="false"
+        [showCoins]="true"
+        [coins]="602"
+        [showBottomNav]="true"
+>
+
+    @if (loading()) {
+
+        <!-- LOADING STATE -->
+        <div class="result__center">
+            <p class="text-tagline text-center m-0">Checking your masterpiece...</p>
+            <app-loader class="mt-5" />
+        </div>
+
+    } @else {
+
+        <!-- RESULT STATE -->
+
+                <!-- Заголовок з нагородою -->
+        <div class="result__header">
+            <h1 class="text-celebration text-center m-0">GREAT JOB!</h1>
+            <div class="result__reward">
+                <span class="text-reward">+{{ rewardCoins }} COINS</span>
+                <span class="result__coin"></span>
+            </div>
+        </div>
+
+        <!-- Маскот-нагорода -->
+        <div class="result__mascot">
+            <img src="assets/cute_dog.svg" alt="Reward mascot" />
+        </div>
+
+        <!-- Веселка -->
+        <app-rainbow-divider />
+
+        <!-- Фідбек від AI -->
+        <p class="text-body text-center m-0">
+            {{ feedback() }}
+        </p>
+
+    }
+
+    <!-- Кнопка з'являється тільки коли результат завантажений -->
+    @if (!loading()) {
+        <app-primary-button
+                footer
+                style="width: 100%"
+                (click)="onStartNewGame()"
+        >
+            Start new game
+        </app-primary-button>
+    }
+
+</app-screen-shell>
