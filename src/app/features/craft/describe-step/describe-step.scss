@@ -1,0 +1,32 @@
+.describe__photo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    width: 100%;
+    max-width: 280px;        /* приблизно як на макеті */
+    aspect-ratio: 1;         /* квадрат */
+    object-fit: cover;        /* фото заповнює рамку, обрізається якщо не квадратне */
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);   /* фон поки фото вантажиться */
+  }
+}
+
+.describe__photo-placeholder {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1;
+  background: #D9D9D9;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.describe__photo-dot {
+  width: 40px;
+  height: 40px;
+  background: #6B6B6B;
+  border-radius: 50%;
+}

@@ -1,0 +1,48 @@
+<app-screen-shell
+        [showHeader]="true"
+        [progress]="0"
+        [totalSteps]="3"
+        [coins]="602"
+        [showBottomNav]="true"
+>
+
+    <!-- Заголовок -->
+    <h1 class="text-display text-center m-0">
+        Hi, {{ userName }}!
+        <br />
+        Let's <span class="text-display-accent">CREATE!</span>
+    </h1>
+
+    <!-- Маскот -->
+    <div class="start__mascot">
+        <img src="assets/chickens.svg" alt="Chicks with backpacks" />
+    </div>
+
+    <!-- Веселка -->
+    <app-rainbow-divider />
+
+    <!-- Інструкція -->
+    <p class="text-body text-center m-0">
+        Look around and pick something interesting — a box, a bottle, anything you find.
+    </p>
+
+    <!-- Прихований input для вибору файла -->
+    <input
+        #fileInput
+        type="file"
+        accept="image/*"
+        capture="environment"
+        style="display: none"
+        (change)="onFileSelected($event)"
+    />
+
+    <!-- Кнопка (footer слот) -->
+    <app-primary-button
+            footer
+            style="width: 100%"
+            (click)="fileInput.click()"
+    >
+        Take a picture
+    </app-primary-button>
+
+</app-screen-shell>

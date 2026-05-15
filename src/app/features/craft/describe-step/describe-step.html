@@ -1,0 +1,43 @@
+<app-screen-shell
+        [showHeader]="true"
+        [progress]="1"
+        [totalSteps]="3"
+        [coins]="602"
+        [showBottomNav]="true"
+        (back)="onBack()"
+>
+
+    <!-- Превью фото -->
+    <div class="describe__photo">
+        @if (photoUrl()) {
+            <img [src]="photoUrl()" alt="Your object" />
+        } @else {
+            <!-- fallback якщо фото загубилось — порожній сірий блок -->
+            <div class="describe__photo-placeholder">
+                <div class="describe__photo-dot"></div>
+            </div>
+        }
+    </div>
+
+    <!-- Питання + інпут -->
+    <div>
+        <p class="text-tagline text-center m-0">
+            What's this? Or what should we create from it?
+        </p>
+        <app-text-input
+                class="mt-4"
+                placeholder="optional..."
+                [(ngModel)]="description"
+        />
+    </div>
+
+    <!-- Кнопка -->
+    <app-primary-button
+            footer
+            style="width: 100%"
+            (click)="onGenerate()"
+    >
+        Generate ideas
+    </app-primary-button>
+
+</app-screen-shell>

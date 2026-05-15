@@ -1,0 +1,75 @@
+<app-screen-shell>
+
+    @switch (step) {
+
+        @case ('START') {
+            <h1 class="text-display text-center m-0">
+                Welcome<br>to <span class="text-display-accent">APEIRON!</span>
+            </h1>
+            <div class="onboarding__mascot">
+                <img src="assets/blue_brain.svg" alt="Brain mascot" />
+            </div>
+            <app-rainbow-divider />
+            <div>
+                <p class="text-tagline text-center m-0">Hello, let's get started!</p>
+                <p class="text-body text-center m-0 mt-4">
+                    Create something useful from used<br>
+                    packaging and see what can come of it
+                </p>
+            </div>
+        }
+
+        @case ('NAME') {
+            <h1 class="text-display text-center m-0">
+                What is<br>your <span class="text-display-accent">NAME?</span>
+            </h1>
+            <div class="onboarding__mascot">
+                <img src="assets/capybara.svg" alt="Capybara" />
+            </div>
+            <app-rainbow-divider />
+            <div>
+                <p class="text-tagline text-center m-0">Write your name here</p>
+                <app-text-input
+                        class="mt-4"
+                        placeholder="Enter name..."
+                        [(ngModel)]="userName"
+                        (keydown.enter)="nextFromName()"
+                />
+            </div>
+        }
+
+        @case ('AGE') {
+            <h1 class="text-display text-center m-0">
+                How old<br>are <span class="text-display-accent">YOU?</span>
+            </h1>
+            <div class="onboarding__mascot">
+                <img src="assets/lion.svg" alt="Lion" />
+            </div>
+            <app-rainbow-divider />
+            <div class="age-grid">
+                @for (age of ages; track age) {
+                    <button
+                            type="button"
+                            class="age-cell"
+                            [class.age-cell--selected]="userAge === age"
+                            (click)="userAge = age"
+                    >
+                        {{ ageLabel(age) }}
+                    </button>
+                }
+            </div>
+        }
+
+    }
+
+    <!-- Кнопка ЗОВНІ switch — динамічно через метод/getter -->
+    <app-primary-button
+            footer
+            style="width: 100%"
+            [disabled]="!canProceed()"
+            (click)="onNext()"
+    >
+        {{ step === 'START' ? 'Get started' : 'Next step' }}
+    </app-primary-button>
+
+</app-screen-shell>
