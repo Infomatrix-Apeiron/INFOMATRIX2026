@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "INFOMATRIX2026": {
+    "frontent-template": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -22,10 +22,15 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ]
           },
           "configurations": {
@@ -56,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "INFOMATRIX2026:build:production"
+              "buildTarget": "frontent-template:build:production"
             },
             "development": {
-              "buildTarget": "INFOMATRIX2026:build:development"
+              "buildTarget": "frontent-template:build:development"
             }
           },
           "defaultConfiguration": "development"
