@@ -24,12 +24,13 @@
   "private": true,
   "packageManager": "npm@10.9.3",
   "dependencies": {
-    "@angular/common": "^21.1.0",
-    "@angular/compiler": "^21.1.0",
-    "@angular/core": "^21.1.0",
-    "@angular/forms": "^21.1.0",
-    "@angular/platform-browser": "^21.1.0",
-    "@angular/router": "^21.1.0",
+    "@angular/common": "21.2.13",
+    "@angular/compiler": "21.2.13",
+    "@angular/core": "21.2.13",
+    "@angular/forms": "21.2.13",
+    "@angular/platform-browser": "21.2.13",
+    "@angular/router": "21.2.13",
+    "@angular/service-worker": "21.2.13",
     "@ngrx/effects": "^21.0.1",
     "@ngrx/entity": "^21.0.1",
     "@ngrx/operators": "^21.0.1",
@@ -43,9 +44,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.1.4",
-    "@angular/cli": "^21.1.4",
-    "@angular/compiler-cli": "^21.1.0",
+    "@angular/build": "21.2.11",
+    "@angular/cli": "21.2.11",
+    "@angular/compiler-cli": "21.2.13",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"

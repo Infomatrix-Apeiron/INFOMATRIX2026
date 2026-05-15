@@ -1,0 +1,75 @@
+/* === LOADING STATE === */
+.generating__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 60vh;
+}
+
+/* === SCROLL CONTAINER === */
+/* Хедер тепер всередині — скролиться разом зі степами */
+.instructions-scroll {
+  flex: 1 1 0;
+  overflow-y: auto;
+  min-height: 0;
+  margin: 0 -24px;
+  padding: 0 24px 16px;
+}
+
+/* === HEADER (scrolls with the rest) === */
+.instructions-header {
+  /* Невеликий відступ зверху, щоб заголовок не "прилипав" до top-bar */
+  padding-top: 4px;
+  /* Простір між хедером і списком степів */
+  margin-bottom: 20px;
+}
+
+/* === STEPS LIST === */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* === STEP CARD === */
+.step-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-card__title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-on-surface);
+}
+
+.step-card__image {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+}
+
+.step-card__description {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}

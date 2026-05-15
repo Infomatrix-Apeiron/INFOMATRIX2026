@@ -1,0 +1,120 @@
+/* ============================================================
+   Typography tokens
+   Базуються на Inter, ваги 400/600/700/800/900
+   ============================================================ */
+
+:root {
+  /* Font family */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Font sizes (з Figma, округлені) */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 17px;        /* card title */
+  --font-size-xl: 21px;        /* "Hello, let's get started!" */
+  --font-size-2xl: 28px;       /* "What can we do?" */
+  --font-size-3xl: 34px;       /* "Welcome to APEIRON!" */
+  --font-size-4xl: 40px;       /* "GREAT JOB!" — оцінка */
+
+  /* Line heights */
+  --line-height-tight: 1.2;    /* для великих заголовків */
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.5;
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.4px;   /* "Welcome to APEIRON" */
+}
+
+/* ============================================================
+   Semantic typography classes
+   Використовуй замість дублювання font-size/weight скрізь
+   ============================================================ */
+
+/* Display — найбільші заголовки на онбордингу */
+.text-display {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Акцентна частина у display (наприклад "APEIRON!" у "Welcome to APEIRON!") */
+.text-display-accent {
+  font-weight: var(--font-weight-black);
+}
+
+/* Заголовок екрану з tab/progress (як "What can we do?") */
+.text-heading {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+/* Підзаголовок (як "Choose the idea you liked the most") */
+.text-subheading {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+/* "Hello, let's get started!" — короткий емоційний акцент */
+.text-tagline {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-normal);
+}
+
+/* Опис під tagline ("Create something useful...") */
+.text-body {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Заголовок картки (як "Mini aquarium for fish") */
+.text-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+}
+
+/* Опис у картці */
+.text-card-body {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+}
+
+/* Кнопка */
+.text-button {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* "GREAT JOB!" — найвеличезніший акцент */
+.text-celebration {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* "+100 COINS" */
+.text-reward {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}

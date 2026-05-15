@@ -1,0 +1,79 @@
+<app-screen-shell
+        [showHeader]="true"
+        [progress]="3"
+        [totalSteps]="3"
+        [coins]="602"
+        [showBottomNav]="true"
+        (back)="onBack()"
+>
+
+    @if (loading()) {
+
+        <!-- LOADING STATE -->
+        <div class="generating__center">
+            <p class="text-tagline text-center m-0">Generating steps...</p>
+            <app-loader class="mt-5" />
+        </div>
+
+    }
+
+    @if (!loading() && instructions(); as data) {
+
+        <!-- SCROLLABLE AREA: header + steps скролиться разом -->
+        <div class="instructions-scroll">
+
+            <!-- HEADER -->
+            <header class="instructions-header">
+                <h1 class="text-heading text-center m-0">{{ data.title }}</h1>
+                <p class="text-subheading text-center m-0 mt-2">{{ data.description }}</p>
+            </header>
+
+            <!-- STEPS LIST -->
+            <div class="steps-list">
+                @for (step of data.steps; track step.step) {
+                    <article class="step-card">
+                        <h3 class="step-card__title">
+                            {{ step.step }}. {{ step.title }}
+                        </h3>
+
+                        @if (step.image) {
+                            <img
+                                    [src]="step.image"
+                                    [alt]="step.title"
+                                    class="step-card__image"
+                            />
+                        }
+
+                        <p class="step-card__description">
+                            {{ step.description }}
+                        </p>
+                    </article>
+                }
+            </div>
+
+        </div>
+
+    }
+
+    <!-- Прихований input для фото готової роботи -->
+    <input
+        #fileInput
+        type="file"
+        accept="image/*"
+        capture="environment"
+        style="display: none"
+        (change)="onFileSelected($event)"
+    />
+
+    <!-- Кнопка з'являється тільки коли інструкції завантажені -->
+    @if (!loading() && instructions()) {
+        <app-primary-button
+                footer
+                style="width: 100%"
+                (click)="fileInput.click()"
+        >
+            Look at the work
+        </app-primary-button>
+    }
+
+</app-screen-shell>

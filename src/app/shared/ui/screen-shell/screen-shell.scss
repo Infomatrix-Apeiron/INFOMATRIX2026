@@ -78,6 +78,14 @@
   }
 }
 
+.shell__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  justify-content: flex-end;   /* ← додано, щоб коіни були справа коли вони одні */
+}
+
 /* === MAIN === */
 .shell__main {
   display: flex;

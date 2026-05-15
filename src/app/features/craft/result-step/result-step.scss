@@ -1,0 +1,45 @@
+/* === LOADING STATE === */
+.result__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 60vh;
+}
+
+/* === RESULT STATE === */
+
+.result__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.result__reward {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Маленька монетка біля "+100 COINS" */
+.result__coin {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: var(--color-coin);
+  border-radius: 50%;
+}
+
+/* === MASCOT === */
+.result__mascot {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 240px;
+    height: auto;
+    max-width: 75vw;
+  }
+}

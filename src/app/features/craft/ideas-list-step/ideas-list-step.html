@@ -1,0 +1,61 @@
+<app-screen-shell
+        [showHeader]="true"
+        [progress]="2"
+        [totalSteps]="3"
+        [coins]="602"
+        [showBottomNav]="true"
+        (back)="onBack()"
+>
+
+    @if (loading()) {
+
+        <!-- LOADING STATE -->
+        <div class="generating__center">
+            <p class="text-tagline text-center m-0">Generating ideas...</p>
+            <app-loader class="mt-5" />
+        </div>
+
+    } @else {
+
+        <!-- LOADED STATE -->
+        <div class="ideas-screen">
+            <div class="ideas-screen__header">
+                <h1 class="text-heading text-center m-0">What can we do?</h1>
+                <p class="text-subheading text-center m-0 mt-2">
+                    Choose the idea you liked the most
+                </p>
+            </div>
+
+            <div class="ideas-list">
+                @for (idea of ideas(); track $index) {
+                    <button
+                            type="button"
+                            class="idea-card"
+                            [class.idea-card--selected]="selectedIndex() === $index"
+                            (click)="onSelect(idea, $index)"
+                    >
+                        <div class="idea-card__icon">
+                            <span>{{ idea.emoji }}</span>
+                        </div>
+                        <div class="idea-card__content">
+                            <h3 class="idea-card__title">{{ idea.title }}</h3>
+                            <p class="idea-card__description">{{ idea.description }}</p>
+                        </div>
+                    </button>
+                }
+            </div>
+        </div>
+
+    }
+
+    @if (!loading() && selectedIdea()) {
+        <app-primary-button
+                footer
+                style="width: 100%"
+                (click)="onNext()"
+        >
+            Next
+        </app-primary-button>
+    }
+
+</app-screen-shell>

@@ -1,8 +1,316 @@
+@use './styles/typography.scss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
 
+/* === Design tokens === */
 :root {
+  /* Background */
+  --color-bg: #5B3FA8;
+  --color-bg-glow: #AF7EE7;
+  --bg-glow-size: 542px;
+  --bg-glow-blur: 180px;        /* набагато більше ніж раніше */
+
+  /* Surface (білі картки, кнопки) */
+  --color-surface: #FFFFFF;
+
+  /* Text */
+  --color-text-on-bg: #FFFFFF; /* білий на фіолетовому */
+  --color-text-on-surface: #2D2D3A; /* темний на білому */
+  --color-text-muted: #8B8B9A; /* плейсхолдери, описи */
+
+  /* Button */
+  --color-button-bg: #FFFFFF;
+  --color-button-shadow: #D8D5EA;
+  --color-button-text: #2D2D3A;
+  --button-shadow-offset: 8px;
+
+  /* Rainbow */
+  --color-rainbow-1: #4A90E2;
+  --color-rainbow-2: #7ED321;
+  --color-rainbow-3: #F5C542;
+  --color-rainbow-4: #FF6B6B;
+  --color-rainbow-5: #FF7802;
+
+  /* Accent */
+  --color-coin: #FFB800;
+  --color-nav-active: #4A90E2;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Spacing (4-base scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Layout */
+  --bottom-nav-height: 64px;
+  --header-height: 56px;
 }
+
+
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--color-bg);
+  font-family: var(--font-family);
+  color: var(--color-text-on-bg);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: var(--bg-glow-size);
+  height: var(--bg-glow-size);
+  transform: translate(-50%, -50%);
+  background: var(--color-bg-glow);
+  border-radius: 50%;
+  filter: blur(var(--bg-glow-blur));
+  pointer-events: none;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* === Custom scrollbar (global) === */
+
+::-webkit-scrollbar {
+  width: 10px;
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(139, 122, 184, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 122, 184, 0.7);
+  border-radius: 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 122, 184, 0.9);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+
+
+/* === Utility classes === */
+
+/* Spacing — margin */
+.m-0 {
+  margin: 0;
+}
+
+.mt-1 {
+  margin-top: var(--space-1);
+}
+
+.mt-2 {
+  margin-top: var(--space-2);
+}
+
+.mt-3 {
+  margin-top: var(--space-3);
+}
+
+.mt-4 {
+  margin-top: var(--space-4);
+}
+
+.mt-5 {
+  margin-top: var(--space-5);
+}
+
+.mt-6 {
+  margin-top: var(--space-6);
+}
+
+.mb-1 {
+  margin-bottom: var(--space-1);
+}
+
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+
+.mb-3 {
+  margin-bottom: var(--space-3);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+
+.mb-5 {
+  margin-bottom: var(--space-5);
+}
+
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+
+/* Spacing — padding */
+.p-0 {
+  padding: 0;
+}
+
+.p-3 {
+  padding: var(--space-3);
+}
+
+.p-4 {
+  padding: var(--space-4);
+}
+
+.p-5 {
+  padding: var(--space-5);
+}
+
+.px-4 {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.px-5 {
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+.py-3 {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.py-4 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+/* Flex */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: var(--space-1);
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+/* Size */
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+/* Text */
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.text-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.text-on-bg {
+  color: var(--color-text-on-bg);
+}
+
+.text-on-surface {
+  color: var(--color-text-on-surface);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
 }
