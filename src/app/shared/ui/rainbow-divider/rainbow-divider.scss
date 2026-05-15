@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  width: 100%;
+  --rainbow-height: 13px;
+}
+
+.rainbow {
+  display: flex;
+  width: 100%;
+  height: var(--rainbow-height);
+  /* overflow: hidden ПРИБРАЛИ — інакше скоси по краях обріжуться */
+}
+
+.seg {
+  flex: 1 1 0;
+  height: 100%;
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  margin-left: -14px;
+
+  /* перший — без негативного відступу, але скос зберігається */
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.seg-1 { background: var(--color-rainbow-4); }   /* червоний */
+.seg-2 { background: var(--color-rainbow-1); }   /* синій */
+.seg-3 { background: var(--color-rainbow-2); }   /* зелений */
+.seg-4 { background: var(--color-rainbow-5); }   /* помаранчевий */
+.seg-5 { background: var(--color-rainbow-3); }   /* жовтий */

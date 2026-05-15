@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input {
+  /* layout */
+  display: block;
+  width: 100%;
+  height: 54px;
+  padding: 0 24px;
+
+  /* appearance */
+  background: var(--color-surface);
+  border: 1px solid #362A62;
+  border-radius: var(--radius-pill);
+  outline: none;
+
+  /* typography — точно як на макеті */
+  font-family: var(--font-family);
+  font-size: 21px;
+  font-weight: var(--font-weight-black);
+  line-height: 1.2;
+  color: var(--color-text-on-surface);
+  text-align: center;
+
+  transition: border-color var(--transition-fast);
+
+  /* placeholder = чорний з прозорістю 39% (як в Figma) */
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.39);
+    font-weight: var(--font-weight-black);
+  }
+
+  &:focus {
+    border-color: var(--color-rainbow-1);  /* синій акцент при фокусі */
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

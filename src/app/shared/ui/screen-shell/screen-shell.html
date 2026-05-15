@@ -1,0 +1,52 @@
+<div class="shell">
+
+    <!-- HEADER (опційно) -->
+    @if (showHeader) {
+        <header class="shell__header">
+
+            <!-- TODO: замінити на <app-back-button /> -->
+            <button class="back-btn" type="button" (click)="back.emit()" aria-label="Back">
+                ←
+            </button>
+
+            <!-- TODO: замінити на <app-progress-bar /> -->
+            <div class="progress">
+                @for (i of [].constructor(totalSteps); track $index) {
+                    <span
+                            class="progress__seg"
+                            [class.progress__seg--active]="$index < progress"
+                    ></span>
+                }
+            </div>
+
+            <!-- TODO: замінити на <app-coins-badge /> -->
+            <div class="coins">
+                <span class="text-badge">{{ coins }}</span>
+                <span class="coins__icon"></span>
+            </div>
+
+        </header>
+    }
+
+    <!-- ОСНОВНИЙ КОНТЕНТ -->
+    <main class="shell__main">
+        <ng-content />
+    </main>
+
+    <!-- FOOTER (кнопка приклеєна до низу) -->
+    <footer class="shell__footer">
+        <ng-content select="[footer]" />
+    </footer>
+
+    <!-- BOTTOM NAV (опційно) -->
+    @if (showBottomNav) {
+        <!-- TODO: замінити на <app-bottom-nav /> -->
+        <nav class="bottom-nav">
+            <button type="button" (click)="navigate.emit('home')">🏠</button>
+            <button type="button" class="bottom-nav__active" (click)="navigate.emit('game')">🎮</button>
+            <button type="button" (click)="navigate.emit('favorites')">♡</button>
+            <button type="button" (click)="navigate.emit('profile')">👤</button>
+        </nav>
+    }
+
+</div>

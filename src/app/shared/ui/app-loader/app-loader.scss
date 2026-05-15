@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+}
+
+.loader-wrap {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  --c: no-repeat linear-gradient(currentColor 0 0);
+  background: var(--c), var(--c), var(--c), var(--c);
+  background-size: 21px 21px;
+
+  animation:
+          loader-move 1.5s infinite cubic-bezier(0.3, 1, 0, 1),
+          loader-color 6s infinite steps(1);
+
+  color: var(--color-rainbow-4);
+}
+
+@keyframes loader-move {
+  0%   { background-position: 0    0,    100% 0,    100% 100%, 0    100%; }
+  33%  { background-position: 0    0,    100% 0,    100% 100%, 0    100%; width: 60px; height: 60px; }
+  66%  { background-position: 100% 0,    100% 100%, 0    100%, 0    0;    width: 60px; height: 60px; }
+  100% { background-position: 100% 0,    100% 100%, 0    100%, 0    0; }
+}
+
+@keyframes loader-color {
+  0%   { color: var(--color-rainbow-4); }
+  25%  { color: var(--color-rainbow-1); }
+  50%  { color: var(--color-rainbow-2); }
+  75%  { color: var(--color-rainbow-5); }
+  100% { color: var(--color-rainbow-4); }
+}

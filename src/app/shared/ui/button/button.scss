@@ -1,0 +1,52 @@
+:host {
+  display: inline-block;
+  width: fit-content;     /* за замовчуванням — по контенту */
+}
+
+/* якщо ззовні задана ширина (через style або клас) — кнопка тягнеться */
+:host([style*="width"]),
+:host(.full-width) {
+  width: auto;            /* дозволяє style="width:..." перебивати */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;            /* ← кнопка завжди займає ширину хоста */
+  min-height: 60px;
+  text-transform: uppercase;
+
+  /* решта стилів без змін */
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 var(--button-shadow-offset) 0 0 var(--color-button-shadow);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  user-select: none;
+  transition:
+          background-color var(--transition-fast),
+          transform var(--transition-fast),
+          box-shadow var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    background: var(--color-button-shadow);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(var(--button-shadow-offset));
+    box-shadow: 0 0 0 0 var(--color-button-shadow);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

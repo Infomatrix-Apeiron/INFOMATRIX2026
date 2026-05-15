@@ -1,0 +1,133 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 60px 24px 40px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+/* === HEADER === */
+.shell__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: -40px -8px 0;   /* компенсуємо великий top padding shell-а */
+}
+
+/* TODO: винести в BackButtonComponent */
+.back-btn {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-on-bg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* TODO: винести в ProgressBarComponent */
+.progress {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+
+  &__seg {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    transition: background var(--transition-fast);
+
+    &--active {
+      background: var(--color-rainbow-1);
+    }
+  }
+}
+
+/* TODO: винести в CoinsBadgeComponent */
+.coins {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: var(--color-coin);
+    border-radius: 50%;
+  }
+}
+
+/* === MAIN === */
+.shell__main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* === FOOTER === */
+.shell__footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+
+  &:empty {
+    display: none;
+  }
+}
+
+/* === BOTTOM NAV === */
+/* TODO: винести в BottomNavComponent */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0 24px;
+  background: var(--color-surface);
+  z-index: 100;
+
+  button {
+    flex: 1;
+    background: none;
+    border: none;
+    font-size: 24px;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--color-text-on-surface);
+  }
+
+  &__active {
+    color: var(--color-rainbow-1) !important;
+  }
+}
+
+/* якщо bottom-nav показаний, додаємо padding знизу щоб контент не перекривався */
+:host:has(.bottom-nav) .shell {
+  padding-bottom: 120px;
+}

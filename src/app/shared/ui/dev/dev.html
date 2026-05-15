@@ -1,0 +1,86 @@
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 20px">
+
+    <app-primary-button style="width: 100%">LOOK AT THE WORK</app-primary-button>
+    <app-primary-button style="width: 200px">Test</app-primary-button>
+    <app-primary-button style="width: 67px">
+        <img src="assets/camera.svg" alt="" height="50" width="50" />
+    </app-primary-button>
+</div>
+
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 20px">
+    <app-rainbow-divider />
+</div>
+
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 20px">
+    <app-text-input placeholder="Enter name..." />
+</div>
+
+<!-- ===== Typography preview ===== -->
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 32px">
+
+    <!-- Display: онбординг-екрани (Welcome / What is your NAME? / How old are YOU?) -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-display + .text-display-accent</p>
+        <h1 class="text-display text-center m-0">
+            Welcome
+            <br />
+            to <span class="text-display-accent">APEIRON!</span>
+        </h1>
+    </section>
+
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-display</p>
+        <h1 class="text-display text-center m-0">
+            What is
+            <br />
+            your <span class="text-display-accent">NAME?</span>
+        </h1>
+    </section>
+
+    <!-- Heading: екран зі списком ідей -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-heading + .text-subheading</p>
+        <h2 class="text-heading text-center m-0">What can we do?</h2>
+        <p class="text-subheading text-center m-0 mt-2">Choose the idea you liked the most</p>
+    </section>
+
+    <!-- Tagline + body: під рейнбоу на онбординзі -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-tagline + .text-body</p>
+        <p class="text-tagline text-center m-0">Hello, let's get started!</p>
+        <p class="text-body text-center m-0 mt-3">
+            Create something useful from used<br />
+            packaging and see what can come of it
+        </p>
+    </section>
+
+    <!-- Card: блоки з ідеями -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-card-title + .text-card-body</p>
+        <div style="background: #fff; padding: 16px 20px; border-radius: 24px; max-width: 340px;">
+            <h3 class="text-card-title text-on-surface m-0">Mini aquarium for fish</h3>
+            <p class="text-card-body m-0 mt-2">
+                You can put a small paper fish inside. This will be its transparent house right on your table.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reward: екран "GREAT JOB!" -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-celebration + .text-reward</p>
+        <h1 class="text-celebration text-center m-0">GREAT JOB!</h1>
+        <p class="text-reward text-center m-0 mt-2">+100 COINS</p>
+    </section>
+
+    <!-- Badge: монетки в шапці -->
+    <section>
+        <p style="opacity: 0.5; font-size: 12px; margin: 0 0 8px">.text-badge (Manrope)</p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); padding: 6px 8px 6px 16px; border-radius: 999px;">
+            <span class="text-badge">602</span>
+            <div style="width: 28px; height: 28px; background: var(--color-coin); border-radius: 50%;">
+<!--                <img src="assets/coins.png" alt="" height="33" width="33" style="margin: 4px" />-->
+            </div>
+        </div>
+    </section>
+
+</div>
