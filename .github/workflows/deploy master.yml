@@ -3,6 +3,7 @@ name: Deploy FE "master"
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 # environments
 # "PRODUCTION" | "PRERELEASE" | "DEVELOP"
