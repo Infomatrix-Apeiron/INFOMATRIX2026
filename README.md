@@ -1,59 +1,82 @@
-# FrontentTemplate
+# Apeiron — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+This is the frontend repository for the **Apeiron** project — an application that helps build eco-awareness in children by teaching them about recycling and the responsible use of secondary raw materials. Through an interactive and kid-friendly interface, Apeiron makes sorting waste, learning about reusable materials, and adopting sustainable habits engaging and accessible for young users.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- **[Angular](https://angular.dev/) 21** — main framework
+- **TypeScript 5.9** — primary language
+- **SCSS** — styling
+- **[NgRx](https://ngrx.io/)** — state management (Store, Effects, Entity, Router Store)
+- **[@ngx-translate](https://github.com/ngx-translate/core)** — internationalization (i18n)
+- **[ngx-toastr](https://github.com/scttcper/ngx-toastr)** — toast notifications
+- **RxJS** — reactive programming
+- **Angular Service Worker** — PWA support
+- **Vitest** — unit testing
+- **Docker / Nginx** — containerization and serving in production
 
-```bash
-ng serve
-```
+## What We Did
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+We built the user-facing part of Apeiron, including:
 
-## Code scaffolding
+- A modular Angular architecture with feature-based structure
+- Centralized state management using NgRx (store, effects, entity, router-store)
+- Multi-language support via `@ngx-translate`
+- A PWA-ready setup with the Angular service worker
+- Integration with the Apeiron backend (NestJS + Gemini API) for AI-powered educational content
+- Production-ready Docker and Nginx configuration for deployment
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Getting Started
 
-```bash
-ng generate component component-name
-```
+### Prerequisites
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Node.js** (LTS version recommended)
+- **npm** 10.9.3 or compatible
 
-```bash
-ng generate --help
-```
+### Installation
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Clone the repository and install dependencies:
 
 ```bash
-ng test
+git clone https://github.com/Infomatrix-Apeiron/INFOMATRIX2026.git
+cd INFOMATRIX2026
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Run the Development Server
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The app will be available at `http://localhost:4200/` and will automatically reload on file changes.
 
-## Additional Resources
+To expose the dev server on your local network:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run startLocalhost
+```
+
+### Build
+
+To build the project for production:
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Run Tests
+
+```bash
+npm test
+```
+
+### Run with Docker
+
+The project includes a `Dockerfile` and `docker-compose.yml`. To run the app in a container:
+
+```bash
+docker-compose up --build
+```
