@@ -10,6 +10,7 @@ import { PrimaryButtonComponent } from '../../../shared/ui/button/button';
 import {LoaderComponent} from '../../../shared/ui/app-loader/app-loader';
 import {Idea} from '../../../_models/api.models';
 import {ApiService} from '../../../_services/api.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-ideas-list-step',
@@ -34,6 +35,7 @@ export class IdeasListStep implements OnInit {
       private flow: CraftFlowState,
       private router: Router,
       private destroyRef: DestroyRef,
+      private toastr: ToastrService,
   ) {}
 
   ngOnInit() {
@@ -53,8 +55,9 @@ export class IdeasListStep implements OnInit {
         .subscribe({
           next: (response) => this.ideas.set(response),
           error: (err) => {
-            console.error('Failed to generate ideas', err);
-            // TODO: показати помилку, повернути на describe
+            const errorMessage = err.error?.message || '';
+            this.toastr.error(errorMessage, 'Oops!');
+            this.router.navigate(['/craft/describe']);
           },
         });
   }
