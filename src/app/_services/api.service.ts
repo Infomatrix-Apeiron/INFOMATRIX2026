@@ -15,10 +15,12 @@ export class ApiService {
     constructor(private http: HttpClient) {}
 
     generateIdeas(prompt: string, files: File[]): Observable<Idea[]> {
+        const age = localStorage.getItem('userAge') ?? '3';
 
         const formData = new FormData();
 
         formData.append('prompt', prompt);
+        formData.append('age', age);
 
         for (const file of files) {
             formData.append('files', file);
@@ -44,11 +46,13 @@ export class ApiService {
         description: string,
         photo?: File
     ): Observable<IdeaInstructionsResponse> {
+        const age = localStorage.getItem('userAge') ?? '3';
 
         const formData = new FormData();
 
         formData.append('title', title);
         formData.append('description', description);
+        formData.append('age', age);
 
         if (photo) {
             formData.append('photo', photo);
@@ -65,9 +69,11 @@ export class ApiService {
     }
 
     generateFeedback(photo: File): Observable<{message: string}> {
+        const age = localStorage.getItem('userAge') ?? '3';
 
         const formData = new FormData();
         formData.append('photo', photo);
+        formData.append('age', age);
 
         return this.http.post<{message: string}>(
             `${this.baseUrl}/generate-feedback`,
