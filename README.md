@@ -1,3 +1,5 @@
+Link for presentation: https://canva.link/pb5q7y4k7hm7b6y
+
 # Apeiron — Frontend
 
 This is the frontend repository for the **Apeiron** project — an application that helps build eco-awareness in children by teaching them about recycling and the responsible use of secondary raw materials. Through an interactive and kid-friendly interface, Apeiron makes sorting waste, learning about reusable materials, and adopting sustainable habits engaging and accessible for young users.
