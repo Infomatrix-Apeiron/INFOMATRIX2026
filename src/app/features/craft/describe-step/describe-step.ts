@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {ChangeDetectionStrategy, Component, computed, OnDestroy} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
-import { CraftFlowState } from '../craft-flow.state';
+import {CraftFlowState} from '../craft-flow.state';
 import {PrimaryButtonComponent} from '../../../shared/ui/button/button';
 import {ScreenShellComponent} from '../../../shared/ui/screen-shell/screen-shell';
 import {TextInputComponent} from '../../../shared/ui/text-input/text-input';

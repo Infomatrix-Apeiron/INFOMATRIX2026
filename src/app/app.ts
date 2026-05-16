@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import {Component, inject, OnInit} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -9,6 +8,8 @@ import {ToastrService} from 'ngx-toastr';
     styleUrl: './app.scss'
 })
 export class App implements OnInit {
+    private router = inject(Router);
+
     userId = '';
 
     ngOnInit(): void {
@@ -21,5 +22,12 @@ export class App implements OnInit {
         }
 
         this.userId = id;
+
+        const age = localStorage.getItem('userAge');
+        const name = localStorage.getItem('userName');
+
+        if (!age || !name) {
+            this.router.navigate(['/onboarding']).then();
+        }
     }
 }

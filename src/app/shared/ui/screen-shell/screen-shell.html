@@ -23,7 +23,7 @@
 
             @if (showCoins) {
                 <div class="coins">
-                    <span class="text-badge">{{ coins }}</span>
+                    <span class="text-badge">{{ moneyService.currentMoney() }}</span>
                     <span class="coins__icon"></span>
                 </div>
             }

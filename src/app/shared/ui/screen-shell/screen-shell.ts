@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {MoneyService} from '../../../_services/money.service';
 
 @Component({
   selector: 'app-screen-shell',
@@ -15,8 +16,12 @@ export class ScreenShellComponent {
   @Input() showBottomNav = false;
   @Input() progress = 0;
   @Input() totalSteps = 0;
-  @Input() coins = 0;
 
   @Output() back = new EventEmitter<void>();
   @Output() navigate = new EventEmitter<'home' | 'game' | 'favorites' | 'profile'>();
+
+  constructor(
+      public moneyService: MoneyService,
+  ) {
+  }
 }

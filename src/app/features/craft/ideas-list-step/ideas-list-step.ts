@@ -57,7 +57,7 @@ export class IdeasListStep implements OnInit {
           error: (err) => {
             const errorMessage = err.error?.message || '';
             this.toastr.error(errorMessage, 'Oops!');
-            this.router.navigate(['/craft/describe']);
+            this.router.navigate(['/craft/start']);
           },
         });
   }

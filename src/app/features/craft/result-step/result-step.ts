@@ -10,6 +10,7 @@ import { PrimaryButtonComponent } from '../../../shared/ui/button/button';
 import { RainbowDividerComponent } from '../../../shared/ui/rainbow-divider/rainbow-divider';
 import {LoaderComponent} from '../../../shared/ui/app-loader/app-loader';
 import {ApiService} from '../../../_services/api.service';
+import {MoneyService} from '../../../_services/money.service';
 
 const REWARD_COINS = 100;
 
@@ -36,6 +37,7 @@ export class ResultStep implements OnInit {
         public flow: CraftFlowState,
         private router: Router,
         private destroyRef: DestroyRef,
+        private moneyService: MoneyService,
     ) {}
 
     ngOnInit() {
@@ -55,6 +57,7 @@ export class ResultStep implements OnInit {
                 next: (response) => {
                     this.feedback.set(response.message);
                     this.flow.result.set(response);
+                    this.moneyService.addMoney(REWARD_COINS);
                 },
                 error: (err) => {
                     console.error('Failed to get feedback', err);
