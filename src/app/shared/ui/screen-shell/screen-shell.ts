@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {MoneyService} from '../../../_services/money.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-screen-shell',
@@ -22,6 +23,14 @@ export class ScreenShellComponent {
 
   constructor(
       public moneyService: MoneyService,
+      private router: Router,
   ) {
+  }
+
+  clearLocalStorage() {
+    if (confirm('Are you sure you want to clear local storage?')) {
+      localStorage.clear();
+      this.router.navigate(['/onboarding']).then();
+    }
   }
 }

@@ -43,18 +43,17 @@
 
     <!-- BOTTOM NAV (опційно) -->
     @if (showBottomNav) {
-        <!-- TODO: замінити на <app-bottom-nav /> -->
         <nav class="bottom-nav">
-            <button type="button" (click)="navigate.emit('home')">
+            <button type="button" (click)="clearLocalStorage()">
                 <img src="assets/icon_home.svg" alt="Logo" />
             </button>
-            <button type="button" class="bottom-nav__active" (click)="navigate.emit('game')">
+            <button type="button" class="bottom-nav__active">
                 <img src="assets/icon_game.svg" alt="Logo" />
             </button>
-            <button type="button" (click)="navigate.emit('favorites')">
+            <button type="button">
                 <img src="assets/icon_heart.svg" alt="Logo" />
             </button>
-            <button type="button" (click)="navigate.emit('profile')">
+            <button type="button">
                 <img src="assets/icon_person.svg" alt="Logo" />
             </button>
         </nav>
